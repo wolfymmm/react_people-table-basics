@@ -13,7 +13,8 @@ export const PeoplePage = () => {
   useEffect(() => {
     let mounted = true;
 
-    fetch('/people.json')
+    fetch('https://mate-academy.github.io/react_people-table/api/people.json')
+
       .then(res => {
         if (!res.ok) {
           throw new Error('Failed to fetch');

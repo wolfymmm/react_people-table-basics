@@ -1,26 +1,20 @@
 import React from 'react';
 import { Person } from '../../types';
+import { Link } from 'react-router-dom';
 
 interface PersonLinkProps {
-  person?: Person | null;
-  'data-cy'?: string;
+  person?: Person;
 }
 
-export const PersonLink: React.FC<PersonLinkProps> = ({
-  person,
-  'data-cy': dataCy,
-}) => {
-  if (!person) {
-    return null;
-  }
+export const PersonLink: React.FC<PersonLinkProps> = ({ person }) => {
+  if (!person) return null;
 
   return (
-    <a
-      href={`#/people/${person.slug}`}
+    <Link
+      to={`/people/${person.slug}`}
       className={person.sex === 'f' ? 'has-text-danger' : ''}
-      data-cy={dataCy}
     >
       {person.name}
-    </a>
+    </Link>
   );
 };
